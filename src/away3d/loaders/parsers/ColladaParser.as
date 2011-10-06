@@ -408,7 +408,7 @@ package away3d.loaders.parsers {
 			}else {
 				o = new ObjectContainer3D();
 			}
-
+			
 			o.name = node.attribute("name").toString();
 			_transform = o.transform;
 			_parent.addChild(o);
@@ -468,6 +468,9 @@ package away3d.loaders.parsers {
 						return;
 				}//switch
 			}//for
+			if(o.assetType == AssetType.CONTAINER){
+				finalizeAsset(o, o.name);
+			}
 		}//parseNode
 	}//class
 }//package
